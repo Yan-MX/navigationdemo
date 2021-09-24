@@ -1,7 +1,8 @@
 /// Flutter code sample for BottomNavigationBar
 
-
 import 'package:flutter/material.dart';
+import 'settings_screen.dart';
+import 'chat_screen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -13,8 +14,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
       title: _title,
+      debugShowCheckedModeBanner: false,
       home: const MyStatefulWidget(),
       theme: ThemeData.dark(),
     );
@@ -33,20 +35,14 @@ class MyStatefulWidget extends StatefulWidget {
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
-  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     Text(
       'Index 0: Screen 1 ',
       style: optionStyle,
     ),
-    Text(
-      'Index 1: Screen 2 ',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: Screen 3 ',
-      style: optionStyle,
-    ),
+    ChatList(),
+    SettingScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -59,13 +55,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Bottom Navigation Demo'),
+        title: const Text('Demo'),
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
-
-
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -74,11 +68,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.business),
-            label: 'Business',
+            label: 'Chat',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.school),
-            label: 'School',
+            label: 'Setting',
           ),
         ],
         currentIndex: _selectedIndex,
