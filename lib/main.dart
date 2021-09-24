@@ -41,7 +41,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       'Index 0: Screen 1 ',
       style: optionStyle,
     ),
-    ChatList(),
+    ChatScreen(),
     SettingScreen(),
   ];
 
@@ -54,13 +54,14 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Demo'),
-      ),
+      //appBar: AppBar(
+       // title: const Text('Demo'),
+     // ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        elevation: 2.0,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),

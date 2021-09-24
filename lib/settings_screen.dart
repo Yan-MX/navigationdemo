@@ -12,7 +12,11 @@ class _SettingScreenState extends State<SettingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: _settingLists(),);
+      appBar: AppBar(
+        title: const Text('Setting'),
+      ),
+      body: _settingLists(),
+    );
   }
 
   Widget _settingLists() {
@@ -32,8 +36,5 @@ class _SettingScreenState extends State<SettingScreen> {
         ),
       ],
     );
-
   }
-
-
 }
