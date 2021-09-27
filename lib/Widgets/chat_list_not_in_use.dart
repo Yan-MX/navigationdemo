@@ -5,6 +5,30 @@ final Color color3 = Color(0xFF8D9199);
 final Color color4 = Color(0xFFC0C4CC);
 final Color red = Color(0xFFFF4040);
 
+//chat list widget for display chats
+class ChatList extends StatefulWidget {
+  const ChatList({Key? key}) : super(key: key);
+
+  @override
+  _ChatListState createState() => _ChatListState();
+}
+
+class _ChatListState extends State<ChatList> {
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+        itemCount: 12,
+        itemBuilder: (BuildContext context, int index) {
+          if (index == 11) {
+            //loading next page
+          }
+          return ChatItem();
+        });
+  }
+}
+
+
+
 class ChatItem extends StatelessWidget {
   const ChatItem({Key? key}) : super(key: key);
 

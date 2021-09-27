@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:navigationdemo/Screens/Chat/chat_detail_screen.dart';
+import 'package:navigationdemo/Models/message_model.dart';
 
 class FavoriteContacts extends StatefulWidget {
   const FavoriteContacts({Key? key}) : super(key: key);
@@ -7,13 +9,14 @@ class FavoriteContacts extends StatefulWidget {
   _FavoriteContactsState createState() => _FavoriteContactsState();
 }
 
+// including two parts one is title with a icon( select more), second is avatar and name of contacts
 class _FavoriteContactsState extends State<FavoriteContacts> {
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Padding(
-          padding:  EdgeInsets.symmetric(horizontal: 20.0),
+          padding: EdgeInsets.symmetric(horizontal: 20.0),
           child: Column(
             children: [
               Padding(
@@ -35,7 +38,7 @@ class _FavoriteContactsState extends State<FavoriteContacts> {
                           Icons.more_horiz,
                         ),
                         iconSize: 30.0,
-                       // color: Colors.blueGrey,
+                        // color: Colors.blueGrey,
                         onPressed: () {},
                       ),
                     ]),
@@ -48,22 +51,27 @@ class _FavoriteContactsState extends State<FavoriteContacts> {
           child: ListView.builder(
             padding: EdgeInsets.only(left: 10.0),
             scrollDirection: Axis.horizontal,
-            itemCount: 8,
+            itemCount: favorites.length,
             itemBuilder: (BuildContext context, int index) {
               return GestureDetector(
-                onTap: () => {},
+                onTap: () => {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) =>
+                              ChatDetailScreen()))
+                },
                 child: Padding(
                   padding: EdgeInsets.all(10.0),
                   child: Column(
                     children: const <Widget>[
                       CircleAvatar(
-                        radius: 35.0,
-                        backgroundImage: NetworkImage(
-                            'https://images.unsplash.com/photo-1628191139360-4083564d03fd?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2670&q=80'
-                      )),
+                          radius: 35.0,
+                          backgroundImage: NetworkImage(
+                              'https://images.unsplash.com/photo-1628191139360-4083564d03fd?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2670&q=80')),
                       SizedBox(height: 6.0),
                       Text(
-                       "name",
+                        "Name",
                         style: TextStyle(
                           color: Colors.blueGrey,
                           fontSize: 16.0,

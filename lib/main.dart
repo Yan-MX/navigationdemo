@@ -1,8 +1,8 @@
 /// Flutter code sample for BottomNavigationBar
 
 import 'package:flutter/material.dart';
-import 'settings_screen.dart';
-import 'chat_screen.dart';
+import 'Screens/settings_screen.dart';
+import 'Screens/Chat/chat_screen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -10,7 +10,7 @@ void main() => runApp(const MyApp());
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  static const String _title = 'Flutter Code Sample';
+  static const String _title = 'Flutter Demo';
 
   @override
   Widget build(BuildContext context) {
